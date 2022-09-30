@@ -44,8 +44,8 @@ Configure load balancing:
 `sudo vi /etc/apache2/sites-available/000-default.conf`
 
 Add this configuration into this section <VirtualHost *:80> :
-
-<!-- <Proxy "balancer://mycluster">
+```
+<Proxy "balancer://mycluster">
                BalancerMember http://<WebServer1-Private-IP-Address>:80 loadfactor=5 timeout=1
                BalancerMember http://<WebServer2-Private-IP-Address>:80 loadfactor=5 timeout=1
                ProxySet lbmethod=bytraffic
@@ -54,8 +54,8 @@ Add this configuration into this section <VirtualHost *:80> :
 
         ProxyPreserveHost On
         ProxyPass / balancer://mycluster/
-        ProxyPassReverse / balancer://mycluster/ -->
-
+        ProxyPassReverse / balancer://mycluster/
+```
 ![configure load balancing](./images/07_Configure_load_balancing.png)
 
 Restart apache server:
